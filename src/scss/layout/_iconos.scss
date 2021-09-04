@@ -1,0 +1,32 @@
+.main
+{
+    h2 { margin: 2rem 0; } 
+}
+
+.iconos-nosotros
+{
+    @include tablet
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+.icono
+{
+    text-align: center;
+    margin-bottom: 2rem;
+
+    img
+    {
+        width: 100%; // Centra la imagen
+        height: 10rem; // Le damos una altura de 10rem
+    }
+    h3 { margin: 0; }
+    p
+    {
+        margin: 0;
+        font-size: 2rem;
+    }
+}

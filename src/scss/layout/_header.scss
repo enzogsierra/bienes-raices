@@ -1,0 +1,62 @@
+// Main
+.no-webp .index
+{
+    background-image: url("../img/header.jpg");
+}
+.webp .index
+{
+    background-image: url("../img/header.webp");
+}
+
+.header
+{
+    background-color: $grisOscuro;
+    padding: 1rem 0 3rem 0;
+
+    &.index
+    {
+        background-position: center center; // La imagen se ve a partir del centro (tanto horizontal como verticalmente)
+        background-size: cover; // Toma todo el espacio disponible
+        
+        @include tablet { min-height: 70rem; }
+
+        .header-contenido
+        {
+            @include tablet
+            {
+                min-height: 70rem; // Estira el div hasta el bottom del background-img
+                h1 { max-width: 60rem; } // Para obligar al texto a interlinear
+            }
+
+            h1
+            {
+                margin: 1rem;
+                color: white;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+        
+    }
+}
+.header-contenido
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.header-nav
+{
+    // Mobile devices (default settings)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // Tablets
+    @include tablet
+    {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}

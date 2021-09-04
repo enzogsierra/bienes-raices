@@ -1,0 +1,52 @@
+.int-contacto
+{
+    h2 { margin-bottom: 0; }
+}
+
+.formulario
+{
+    fieldset
+    {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        margin: 0 0 2rem 0;
+
+        legend 
+        { 
+            padding: 0 1rem; 
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        label
+        {
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+        }
+        input, textarea
+        {
+            border: 1px solid $gris;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        textarea
+        {
+            height: 10rem;
+        }
+        select
+        {
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        p { margin: 0; }
+    }
+
+    input[type="submit"]
+    {
+        margin: 0rem auto 2rem auto;
+        width: 15rem;
+        height: 4rem;
+        max-width: 80rem;
+    }
+}

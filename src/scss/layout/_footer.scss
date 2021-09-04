@@ -1,0 +1,31 @@
+.footer
+{
+    margin-top: 5rem;
+    background-color: $grisOscuro;
+
+    p
+    {
+        margin: 1rem;
+        color: white;
+    }
+
+    // Mobile default settings
+    display: flex;
+    flex-direction: column; // <nav> - (c)
+    align-items: center;
+    padding: 1rem;
+
+    // Tablets
+    @include tablet
+    {
+        padding: 1rem 5rem;
+        flex-direction: row-reverse; // (c) - <nav>
+        justify-content: space-between;
+    }
+
+    .navegacion
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+}

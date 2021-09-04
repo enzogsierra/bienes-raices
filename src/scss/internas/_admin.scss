@@ -1,0 +1,79 @@
+.admin-msg
+{
+    &.admin-msg-error { background-color: #ff1f1f; }
+    &.admin-msg-success { background-color: #009900; }
+
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+
+    p 
+    {
+        margin: 0;
+        color: white;
+    }
+}
+
+.propiedades
+{
+    margin: 4rem 0 0;
+    width: 100%;
+    border-spacing: 0; // Es como el gap
+    text-align: center;
+
+    thead
+    {
+        background-color: #009900;
+        th
+        {
+            color: white;
+            padding: 1rem;
+        }
+    }
+
+    .propiedad-imagen
+    {
+        margin: 0 auto; // Centrar imagen
+        min-width: 20rem;
+        width: 100%;
+        max-width: 40rem;
+    }
+
+    tbody
+    {
+        tr:nth-child(2n)
+        {
+            background-color: #dddddd;
+        }
+    }
+
+    .propiedad-icon   
+    {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        img { width: 3rem; } // Editar
+        input[type="image"] // Eliminar
+        {
+            padding-top: .8rem;
+            width: 2.5rem;
+        }
+    }
+}
+
+.formulario-imagen
+{
+    border: 1px solid $gris;
+    padding: 1rem;
+    max-width: 40rem;
+    margin-bottom: 2rem;
+
+    img { width: 100%; }
+    p
+    {
+        font-weight: bold;
+        text-align: center;
+    }
+}

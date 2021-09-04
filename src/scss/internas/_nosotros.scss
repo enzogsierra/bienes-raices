@@ -1,0 +1,16 @@
+/*.nosotros
+{
+}*/
+
+.nosotros-div
+{
+    h4 { margin: 0 0 1rem 0; }
+    p { margin: 0; }
+
+    @include tablet
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}

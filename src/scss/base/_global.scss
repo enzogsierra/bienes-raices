@@ -1,0 +1,62 @@
+html
+{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after 
+{
+    box-sizing: inherit;
+}
+body 
+{
+    font-family: $fuente_principal;
+    font-size: 1.6rem;
+    line-height: 1.8;
+
+    transition: color .2s ease-out;
+    transition: background-color .2s ease-out;
+}
+
+.contenedor
+{
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.seccion 
+{
+    margin-top: $separacion / 2;
+    margin-bottom: $separacion / 2;
+}
+.contenido-centrado 
+{
+    max-width: 800px;
+}
+.display-none
+{
+    display: none;
+}
+
+
+h1, h2, h3, h4 { text-align: center; }
+h1 { font-size: 3.8rem; }
+h2 { font-size: 3.4rem; }
+h3 { font-size: 3rem; }
+h4 { font-size: 2.6rem; }
+
+img, picture 
+{
+    width: 100%;
+    display: block;
+}
+
+// Botones
+.boton-naranja
+{
+    @include boton($naranja);
+}
+
+.boton-verde
+{
+    @include boton($verde);
+}
