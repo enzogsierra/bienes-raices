@@ -40,6 +40,18 @@ document.addEventListener("DOMContentLoaded", function()
             document.querySelector(".contacto-email").classList.toggle("display-none");
         })
     }
-})
+
+
+    /* PAGINA 404 */
+    const e404_stars = document.querySelector(".stars");
+    if(e404_stars)
+    {
+        
+        for(let i = 0; i < 40; i++) 
+        {
+            e404_stars.innerHTML += "<div class='star'></div>";
+        }
+    }
+});
 
 
