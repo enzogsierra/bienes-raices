@@ -18,6 +18,7 @@ $router->post("/contacto", [PublicController::class, "contacto"]);
 $router->get("/entrada", [PublicController::class, "entrada"]);
 $router->get("/nosotros", [PublicController::class, "nosotros"]);
 
+// Admin
 $router->get("/login", [PublicController::class, "login"]);
 $router->post("/login", [PublicController::class, "login"]);
 $router->get("/logout", [PublicController::class, "logout"]);

@@ -148,4 +148,9 @@ class PublicController
         }
         else $router->render("public/404"); // Si el usuario no es administrador, mostrar la página 404
     }
+
+    public static function usuario()
+    {
+        
+    }
 }

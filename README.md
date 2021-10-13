@@ -35,3 +35,18 @@ Luego, abre otra terminal y escribe
 gulp
 ``` 
 Este iniciará las tareas de gulp para compilar los archivos .sass, .js e imágenes que se encuentran en la carpeta "/src".
+
+## Usuarios
+Para crear un usuario con privilegios de administrador, ingresa al archivo "usuario.php" y lee la mini documentación.
+
+## PHP
+Para que InterventionImage pueda funcionar correctamente, es importante que agregues/habilites/cambies los siguientes valores en tu `php.ini`
+````
+extension=php_fileinfo.dll
+extension=gd
+
+upload_max_filesize = 40M
+post_max_size = 40M
+max_execution_time = 300
+memory_limit = 128M
+```

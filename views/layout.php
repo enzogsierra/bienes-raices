@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="derecha">
-                        <img src="/build/img/dark-mode.svg" class="dark-mode-btn">
+                        <img src="/build/img/dark-mode.svg" class="dark-mode-btn" title="Modo oscuro">
                         <nav class="navegacion">
                             <a href="/nosotros">Nosotros</a>
                             <a href="/anuncios">Anuncios</a>
