@@ -1,11 +1,11 @@
 {
-    "name": "enzom/6-bienes-raices",
-    "description": "Creando un proyecto con POO",
+    "name": "bienes-raices",
+    "description": "Venta de propiedades e inmuebles",
     "type": "project",
     "authors": [
         {
             "name": "Enzo Sierra",
-            "email": "enzometlc@hotmail.com"
+            "email": "enzogsierra@gmail.com"
         }
     ],
     "require": {
