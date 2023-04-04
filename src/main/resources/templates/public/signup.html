@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor seccion contenido-centrado">
+            <h1>Crear cuenta</h1>
+
+            <form th:action="@{/signup}" th:object="${account}" class="formulario" method="POST" novalidate>
+                <div th:if="${#fields.hasAnyErrors()}" class="admin-msg admin-msg-error">
+                    <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+                </div>
+
+                <fieldset>
+                    <legend>Introduce tus datos</legend>
+                    <label for="username">Nombre de usuario</label>           
+                    <input th:field="*{username}" type="text" id="username" required>
+        
+                    <label for="password">Contraseña</label>  
+                    <input th:field="*{password}" type="password" id="password" required>
+                </fieldset>
+        
+                <button type="submit" class="boton boton-verde">Crear cuenta</button>
+                <a th:href="@{/login}" class="boton boton-naranja">Iniciar sesión</a>
+            </form>
+        </main>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>

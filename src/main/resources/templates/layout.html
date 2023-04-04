@@ -1,0 +1,53 @@
+<!--  -->
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienes Raíces</title>
+
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+
+
+<!--  -->
+<header class="header" th:fragment="header" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'index' : ''}">
+    <div class="contenedor header-contenido">
+        <div class="header-nav">
+            <a th:href="@{/}">
+                <img th:src="@{/img/logo.svg}" alt="logotipo de Bienes Raíces">
+            </a>
+
+            <div class="mobile-menu">
+                <img th:src="@{/img/barras.svg}" alt="icono menu responsive">
+            </div>
+
+            <div class="derecha">
+                <img th:src="@{/img/dark-mode.svg}" class="dark-mode-btn" title="Modo oscuro">
+                <nav class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="anuncios.html">Anuncios</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+         
+        <h1 th:if="${#httpServletRequest.getRequestURI() == '/'}">Venta de casas y departamentos exclusivos de lujo</h1>
+    </div>
+</header>
+
+
+<!--  -->
+<footer class="footer" th:fragment="footer">
+    <nav class="navegacion">
+        <a href="nosotros.html">Nosotros</a>
+        <a href="anuncios.html">Anuncios</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <p class="copyright">Todos los derechos reservados - 2021 &copy;</p>
+
+    <!-- Scripts -->
+    <script th:src="@{/js/bundle.min.js}"></script>
+</footer>

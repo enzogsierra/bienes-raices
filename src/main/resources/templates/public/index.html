@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor main">
+            <h2 data-cy="heading-nosotros">Más sobre nosotros</h2>
+
+            <div class="iconos-nosotros" data-cy="iconos">
+                <div class="icono">
+                    <img th:src="@{/img/icono1.svg}" alt="icono seguridad" loading="lazy">
+                    <h3>Seguridad</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
+                </div>
+                <div class="icono">
+                    <img th:src="@{/img/icono2.svg}" alt="icono precio" loading="lazy">
+                    <h3>Precio</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
+                </div>
+                <div class="icono">
+                    <img th:src="@{/img/icono3.svg}" alt="icono tiempo" loading="lazy">
+                    <h3>A tiempo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
+                </div>
+            </div>
+        </main>
+
+        <section class="seccion contenedor">       
+            <h2>Casas y departamentos en venta</h2>  
+
+            <div class="anuncios">
+                <div class="anuncio" data-cy="anuncio">
+                    <a data-cy="anuncio-link" href="anuncio1.html" class="anuncio-link"></a>
+
+                    <img class="anuncio-img" src="imagenes/170c32f00390ee36994e491996981951.jpg" alt="propiedad" loading="lazy">
+                        
+                    <div class="anuncio-contenido">
+                        <div>
+                            <h4>Morbi lobortis euismod</h4>
+                            <p class="anuncio-contenido__precio">&dollar;1,000,000</p>
+                            <p>Sed placerat lectus hendrerit nunc molestie, vel bibendum elit efficitur. Integer ornare interdum porta. Cras neque lorem, sagittis vel vulputat...</p>
+                        </div>
+
+                        <ul class="anuncio-icons">
+                            <li>
+                                <img th:src="@{/img/icono_wc.svg}" alt="icon wc" loading="lazy">
+                                <p>3</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_estacionamiento.svg}" alt="icon estacionamiento" loading="lazy">
+                                <p>1</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_dormitorio.svg}" alt="icon habitaciones" loading="lazy">
+                                <p>5</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+
+                <div class="anuncio" data-cy="anuncio">
+                    <a data-cy="anuncio-link" href="anuncio2.html" class="anuncio-link"></a>
+
+                    <img class="anuncio-img" src="imagenes/838128d2773e114bc8a5d37673cd1e46.jpg" alt="propiedad" loading="lazy">
+                        
+                    <div class="anuncio-contenido">
+                        <div>
+                            <h4>Proin tempus sodales</h4>
+                            <p class="anuncio-contenido__precio">&dollar;200,000</p>
+                            <p>Hermosa casa blanca de 2 pisos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et lacus lectus. Praesent iaculis in leo eu lac...</p>
+                        </div>
+
+                        <ul class="anuncio-icons">
+                            <li>
+                                <img th:src="@{/img/icono_wc.svg}" alt="icon wc" loading="lazy">
+                                <p>2</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_estacionamiento.svg}" alt="icon estacionamiento" loading="lazy">
+                                <p>1</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_dormitorio.svg}" alt="icon habitaciones" loading="lazy">
+                                <p>7</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+                
+                <div class="anuncio" data-cy="anuncio">
+                    <a data-cy="anuncio-link" href="anuncio3.html" class="anuncio-link"></a>
+
+                    <img class="anuncio-img" src="imagenes/fe9fd38004550b842ddee4ab71b599c1.jpg" alt="propiedad" loading="lazy">
+                    
+                    <div class="anuncio-contenido">
+                        <div>
+                            <h4>Donec imperdiet quis dolor a rho...</h4>
+                            <p class="anuncio-contenido__precio">&dollar;2,000</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique, justo eu malesuada feugiat, odio nisi pharetra neque, eget malesuada...</p>
+                        </div>
+
+                        <ul class="anuncio-icons">
+                            <li>
+                                <img th:src="@{/img/icono_wc.svg}" alt="icon wc" loading="lazy">
+                                <p>1</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_estacionamiento.svg}" alt="icon estacionamiento" loading="lazy">
+                                <p>1</p>
+                            </li>
+                            <li>
+                                <img th:src="@{/img/icono_dormitorio.svg}" alt="icon habitaciones" loading="lazy">
+                                <p>1</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="anuncio-vertodas">
+                <a href="anuncios.html" class="boton-verde" data-cy="btn-vertodas">ver todas</a>
+            </div>
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section class="contacto" data-cy="contacto">
+            <h2>Encuentra la casa de tus sueños</h2>
+            <p>Rellena el formulario de contacto y un asesor se pondrá en contacto contigo</p>
+            <a href="contacto.html" class="boton-naranja">Contacto</a>
+        </section>
+
+
+        <!-- BLOG -->
+        <div class="contenedor seccion-blog">
+            <section class="blog">
+                <h3>Nuestro blog</h3>
+
+                <article class="blog-entrada">
+                    <div class="blog-entrada__imagen">
+                        <picture>
+                            <source th:srcset="@{/img/blog1.webp}" type="image/webp">
+                            <source th:srcset="@{/img/blog1.jpg}" type="image/jpeg">
+                            <img src="build/img/blog1.jpg" alt="imagen blog 1" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="blog-entrada__texto">
+                        <a href="blog.html">
+                            <h4>Terraza en el techo de tu casa</h4>
+                            <p class="informacion-meta">Escrito el <span>20/10/2021</span> por <span>Admin</span></p>
+                            <p>Consejos para construir una terraza en el techo de tu casa, con los mejores materiales y ahorrando dinero</p>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="blog-entrada">
+                    <div class="blog-entrada__imagen">
+                        <picture>
+                            <source th:srcset="@{/img/blog2.webp}" type="image/webp">
+                            <source th:srcset="@{/img/blog2.jpg}" type="image/jpeg">
+                            <img src="build/img/blog2.jpg" alt="imagen blog 2" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="blog-entrada__texto">
+                        <a href="blog.html">
+                            <h4>Guía para la decoración de tu hogar</h4>
+                            <p class="informacion-meta">Escrito el <span>24/10/2021</span> por <span>Admin</span></p>
+                            <p>Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle vida a tu espacio</p>
+                        </a>
+                    </div>
+                </article>
+            </section>
+
+            <section class="blog-testimoniales">
+                <h3>Testimoniales</h3>
+
+                <div class="blog-testimonial">
+                    <blockquote>
+                        El personal se comportó de una excelente forma, muy buena atención y la casa que me ofrecieron cumple con todas mis expectativas!
+                    </blockquote>
+                    <p>- Lorem Ipsum</p>
+                </div>
+            </section>
+        </div>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>

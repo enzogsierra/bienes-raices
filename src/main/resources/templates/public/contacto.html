@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bienes Raíces</title>
+
+        <link rel="stylesheet" href="build/css/app.css">
+    </head>
+
+    <body>
+        <header class="header ">
+            <div class="contenedor header-contenido">
+                <div class="header-nav">
+                    <a href="/bienes-raices/">
+                        <img src="build/img/logo.svg" alt="logotipo de Bienes Raíces">
+                    </a>
+
+                    <div class="mobile-menu">
+                        <img src="build/img/barras.svg" alt="icono menu responsive">
+                    </div>
+
+                    <div class="derecha">
+                        <img src="build/img/dark-mode.svg" class="dark-mode-btn" title="Modo oscuro">
+
+                        <nav class="navegacion">
+                            <a href="nosotros.html">Nosotros</a>
+                            <a href="anuncios.html">Anuncios</a>
+                            <a href="blog.html">Blog</a>
+                            <a href="contacto.html">Contacto</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="int-contacto contenedor contenido-centrado">
+            <h1>Contacto</h1>
+
+            <picture>
+                <source srcset="build/img/destacada.webp" type="image/webp">
+                <source srcset="build/img/destacada.jpg" type="image/jpeg">
+                <img src="build/img/destacada3.jpg" alt="imagen contacto">
+            </picture>
+
+            <h2>Rellene el formulario</h2>
+            <p>Todos los campos son obligatorios</p>
+            <form class="formulario" action="/contacto" method="POST" novalidate>
+                <fieldset>
+                    <legend>Información personal</legend>
+
+                    <label for="nombre">Nombre</label>
+                    <input type="text" placeholder="Nombre" id="nombre" name="contacto[nombre]" autocomplete="off" required>
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" placeholder="Mensaje" name="contacto[mensaje]" required></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información sobre propiedad</legend>
+                    
+                    <label for="compra-vende">Vende o compra</label>
+                    <select id="compra-vende" name="contacto[compra-vende]" required>
+                        <option value="" selected disabled>-- Seleccionar --</option>
+                        <option value="compra">Compra</option>
+                        <option value="vende">Vende</option>
+                    </select>
+
+                    <label for="presupuesto">Precio o presupuesto</label>
+                    <input type="number" id="presupuesto" name="contacto[presupuesto]" autocomplete="off" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Contacto</legend>
+
+                    <label>Medio de contacto</label>
+                    <select name="contacto[medio]" id="contacto-medio" required>
+                        <option value="telefono" selected>Teléfono</option>
+                        <option value="email">e-mail</option>
+                    </select>
+
+                    <!-- Telefono -->
+                    <div class="contacto-telefono">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" placeholder="" id="telefono" name="contacto[telefono]">
+
+                        <label for="fecha">Fecha</label> 
+                        <input type="date" min="2021-10-15" id="fecha" name="contacto[fecha]" required>
+
+                        <label for="hora">Hora</label> 
+                        <input type="time" min="08:00" max="19:59" id="hora" name="contacto[hora]" required>
+                    </div>
+                    
+                    <!-- email -->
+                    <div class="contacto-email display-none">
+                        <label for="email">e-mail</label>
+                        <input type="email" placeholder="example@email.com" id="email" name="contacto[email]" required>
+                    </div>
+                </fieldset>
+
+                <input type="submit" value="Enviar" class="boton-verde">
+            </form>
+        </main>
+
+        <footer class="footer">
+            <nav class="navegacion">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="anuncios.html">Anuncios</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <p class="copyright">Todos los derechos reservados - 2021 &copy;</p>
+        </footer>
+
+        <script src="build/js/bundle.min.js"></script>
+    </body>
+</html>
