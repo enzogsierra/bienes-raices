@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor anuncio-single contenido-centrado">
+            <h1 th:text="${property.title}"></h1>
+
+            <img th:src="@{/assets/properties/{img} (img = ${property.imageName})}" alt="Foto de la propiedad">
+            
+            <ul class="anuncio-icons">
+                <li>
+                    <img th:src="@{/img/icono_dormitorio.svg}" alt="icono de habitaciones" loading="lazy">
+                    <p th:text="${property.rooms}"></p>
+                </li>
+                <li>
+                    <img th:src="@{/img/icono_wc.svg}" alt="icono de baños" loading="lazy">
+                    <p th:text="${property.bathrooms}"></p>
+                </li>
+                <li>
+                    <img th:src="@{/img/icono_estacionamiento.svg}" alt="icono de estacionamientos" loading="lazy">
+                    <p th:text="${property.parkingLots}"></p>
+                </li>
+            </ul>
+
+            <p class="anuncio-single__precio">$ <span th:text="${#numbers.formatDecimal(property.price, 0, 'DEFAULT', 0, 'POINT')}"></span></p>
+            <p th:text="${property.description}"></p>    
+        </main>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>

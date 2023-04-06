@@ -39,6 +39,8 @@ public class AdminController
     @Autowired
     private ImageService imageService;
 
+    final String imagesFolder = "properties/"; // Carpeta donde se guardan las fotos de las propiedades (dentro de la carpeta /assets/)
+
 
     @GetMapping(value = {"", "/"})
     public String home(Model model)
@@ -89,8 +91,6 @@ public class AdminController
         }
 
         // Formulario validado
-        final String imagesFolder = "properties/";
-
         if(property.getId() == null) // ID no existente, se está creando una propiedad
         {
             String filename = imageService.save(imageFile, imagesFolder); // Guardar imagen
@@ -120,14 +120,15 @@ public class AdminController
     @PostMapping("/eliminarPropiedad")
     public String deleteProperty(@RequestParam Integer id, RedirectAttributes redirect)
     {
-        Optional<Property> property = propertyRepository.findById(id); // Tratar de obtener el vendedor según el ID proporcionado desde el form
-        if(!property.isPresent()) // Vendedor inexistente
+        Optional<Property> property = propertyRepository.findById(id); // Tratar de obtener la propiedad según el ID proporcionado desde el form
+        if(!property.isPresent()) // Propiedad inexistente
         {
             return "redirect:/admin";
         }
 
-        // Eliminar vendedor
-        propertyRepository.delete(property.get());
+        //
+        imageService.delete(imagesFolder + property.get().getImageName()); // Eliminar imagen de la propiedad
+        propertyRepository.delete(property.get()); // Eliminar propiedad
 
         redirect.addFlashAttribute("successMsg", "Propiedad eliminada correctamente");
         return "redirect:/admin";

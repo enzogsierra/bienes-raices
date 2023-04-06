@@ -61,7 +61,13 @@
                     <select name="seller" id="seller">
                         <option th:value="${0}" disabled selected>-- Selecciona un vendedor --</option>
 
-                        <option th:each="seller: ${sellers}" th:value="${seller.id}" th:text="${seller.name + ' ' + seller.surname}"></option>
+                        <option 
+                            th:each="seller: ${sellers}" 
+                            th:value="${seller.id}" 
+                            th:text="${seller.name + ' ' + seller.surname}"
+                            th:selected="${property.seller != null && property.seller.id == seller.id}"
+                            >
+                        </option>
                     </select>
                 </fieldset>
     
