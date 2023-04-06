@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor seccion">
+            <h1 th:if="${seller.id == null}">Registrar vendedor</h1>
+            <h1 th:unless="${seller.id == null}">Editar vendedor</h1>
+        
+            <a href="/admin" class="boton boton-verde">Volver</a>
+        
+            <!-- Mensajes de error -->
+            <!-- <?php if(!empty($errores)): ?>
+                <div class="admin-msg admin-msg-error">
+                    <?php foreach($errores as $error): ?>
+                        <p>&sdot; <?php echo $error; ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?> -->
+        
+        
+            <!-- Formulario -->
+            <form th:action="@{/admin/sellerPost}" th:object="${seller}" class="formulario" method="POST">
+                <div th:if="${#fields.hasAnyErrors()}" class="admin-msg admin-msg-error">
+                    <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+                </div>
+
+                <fieldset>
+                    <legend>Información general</legend>
+
+                    <input type="hidden" th:field="*{id}">
+                
+                    <label for="nombre">Nombre</label>  
+                    <input th:field="*{name}" type="text" placeholder="Nombre" id="nombre" required>
+                
+                    <label for="apellido">Apellido</label>  
+                    <input th:field="*{surname}" type="text" placeholder="Apellido" id="apellido" required>
+                
+                    <label for="telefono">Teléfono</label>  
+                    <input th:field="*{phoneNumber}" type="text" placeholder="Teléfono" id="telefono" required>
+                </fieldset>
+        
+                <input type="submit" value="Guardar" class="boton-verde">
+            </form>
+        </main>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>

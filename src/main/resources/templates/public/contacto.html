@@ -1,47 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bienes Raíces</title>
-
-        <link rel="stylesheet" href="build/css/app.css">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
     </head>
 
     <body>
-        <header class="header ">
-            <div class="contenedor header-contenido">
-                <div class="header-nav">
-                    <a href="/bienes-raices/">
-                        <img src="build/img/logo.svg" alt="logotipo de Bienes Raíces">
-                    </a>
-
-                    <div class="mobile-menu">
-                        <img src="build/img/barras.svg" alt="icono menu responsive">
-                    </div>
-
-                    <div class="derecha">
-                        <img src="build/img/dark-mode.svg" class="dark-mode-btn" title="Modo oscuro">
-
-                        <nav class="navegacion">
-                            <a href="nosotros.html">Nosotros</a>
-                            <a href="anuncios.html">Anuncios</a>
-                            <a href="blog.html">Blog</a>
-                            <a href="contacto.html">Contacto</a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <header th:replace="layout::header"></header>
 
         <main class="int-contacto contenedor contenido-centrado">
             <h1>Contacto</h1>
 
             <picture>
-                <source srcset="build/img/destacada.webp" type="image/webp">
-                <source srcset="build/img/destacada.jpg" type="image/jpeg">
-                <img src="build/img/destacada3.jpg" alt="imagen contacto">
+                <source th:srcset="@{/img/destacada.webp}" type="image/webp">
+                <source th:srcset="@{/img/destacada.jpg}" type="image/jpeg">
+                <img th:src="@{/img/destacada3.jpg}" alt="imagen contacto">
             </picture>
 
             <h2>Rellene el formulario</h2>
@@ -103,17 +74,6 @@
             </form>
         </main>
 
-        <footer class="footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-
-            <p class="copyright">Todos los derechos reservados - 2021 &copy;</p>
-        </footer>
-
-        <script src="build/js/bundle.min.js"></script>
+        <footer th:replace="layout::footer"></footer>
     </body>
 </html>

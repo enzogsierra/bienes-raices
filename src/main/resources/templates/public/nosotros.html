@@ -1,39 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bienes Raíces</title>
-
-        <link rel="stylesheet" href="build/css/app.css">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
     </head>
 
     <body>
-        <header class="header ">
-            <div class="contenedor header-contenido">
-                <div class="header-nav">
-                    <a href="/bienes-raices/">
-                        <img src="build/img/logo.svg" alt="logotipo de Bienes Raíces">
-                    </a>
-
-                    <div class="mobile-menu">
-                        <img src="build/img/barras.svg" alt="icono menu responsive">
-                    </div>
-
-                    <div class="derecha">
-                        <img src="build/img/dark-mode.svg" class="dark-mode-btn" title="Modo oscuro">
-
-                        <nav class="navegacion">
-                            <a href="nosotros.html">Nosotros</a>
-                            <a href="anuncios.html">Anuncios</a>
-                            <a href="blog.html">Blog</a>
-                            <a href="contacto.html">Contacto</a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <header th:replace="layout::header"></header>
 
         <main class="contenedor nosotros">
             <h1>Nosotros</h1>
@@ -41,9 +12,9 @@
             <div class="nosotros-div">
                 <div>
                     <picture>
-                        <source srcset="build/img/nosotros.webp" type="image/webp">
-                        <source srcset="build/img/nosotros.jpg" type="image/jpeg">
-                        <img src="build/img/nosotros.jpg" alt="nosotros">
+                        <source th:srcset="@{/img/nosotros.webp}" type="image/webp">
+                        <source th:srcset="@{/img/nosotros.jpg}" type="image/jpeg">
+                        <img th:src="@{/img/nosotros.jpg}" alt="nosotros">
                     </picture>
                 </div>
                 <div class="nosotros-div__text">
@@ -58,34 +29,23 @@
 
             <div class="iconos-nosotros" data-cy="iconos">
                 <div class="icono">
-                    <img src="build/img/icono1.svg" alt="icono seguridad" loading="lazy">
+                    <img th:src="@{/img/icono1.svg}" alt="icono seguridad" loading="lazy">
                     <h3>Seguridad</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
                 </div>
                 <div class="icono">
-                    <img src="build/img/icono2.svg" alt="icono precio" loading="lazy">
+                    <img th:src="@{/img/icono2.svg}" alt="icono precio" loading="lazy">
                     <h3>Precio</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
                 </div>
                 <div class="icono">
-                    <img src="build/img/icono3.svg" alt="icono tiempo" loading="lazy">
+                    <img th:src="@{/img/icono3.svg}" alt="icono tiempo" loading="lazy">
                     <h3>A tiempo</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis veniam voluptatum vel nostrum libero modi molestiae sed placeat quod neque, repellendus quidem atque suscipit ab accusantium deserunt ipsam repudiandae?</p>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-
-            <p class="copyright">Todos los derechos reservados - 2021 &copy;</p>
-        </footer>
-
-        <script src="build/js/bundle.min.js"></script>
+        <footer th:replace="layout::footer"></footer>
     </body>
 </html>

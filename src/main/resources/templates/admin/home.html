@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor seccion">
+            <h1>Administrador de Bienes Raíces</h1>
+
+            <!--  -->
+            <div th:if="${successMsg}" class="admin-msg admin-msg-success">
+                <p th:text="${successMsg}"></p>
+            </div>
+
+            <div th:if="${errorMsg}" class="admin-msg admin-msg-error">
+                <p th:text="${errorMsg}"></p>
+            </div>
+
+        
+            <a th:href="@{/admin/nuevaPropiedad}" class="boton boton-verde">Nueva Propiedad</a>
+            <a th:href="@{/admin/nuevoVendedor}" class="boton boton-naranja">Nuevo Vendedor</a>
+        
+            <!-- LISTA PROPIEDADES  -->
+            <h2>Propiedades</h2>
+
+            <h4 th:if="${properties.size() == 0}">Aún no hay propiedades creadas</h4>
+            <table th:unless="${properties.size() == 0}" class="propiedades">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr th:each="property: ${properties}">
+                        <td th:text="${property.id}"></td>
+                        <td th:text="${property.title}"></td>
+                        <td>
+                            <img th:src="@{/assets/properties/{img} (img = ${property.imageName})}" alt="Imagen de propiedad" class="propiedad-imagen">
+                        </td>
+                        <td>&dollar; <span th:text="${#numbers.formatDecimal(property.price, 0, 'DEFAULT', 0, 'POINT')}"></span></td>
+                        <td>
+                            <div class="propiedad-icon">
+                                <a th:href="@{/admin/editarPropiedad/{id} (id = ${property.id})}">
+                                    <img th:src="@{/img/icon-edit.svg}" alt="edit icon" title="Editar propiedad">    
+                                </a>
+
+                                <form th:action="@{/admin/eliminarPropiedad}" method="POST" id="propiedades-formsubmit">
+                                    <input type="hidden" name="id" th:value="${property.id}">
+                                    <input type="hidden" name="tipo" value="propiedad">
+                                    <input type="image" th:src="@{/img/icon-delete.svg}" alt="delete icon" title="Eliminar propiedad" class="_delete-button">
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- <?php
+                    foreach($propiedades as $propiedad):
+                    ?>
+                        <tr>
+                            <td><?php echo $propiedad->id; ?></td>
+                            <td><?php echo $propiedad->titulo; ?></td>
+                            <td><img src="/imagenes/<?php echo $propiedad->imagen; ?>" class="propiedad-imagen"></td>
+                            <td>&dollar;<?php echo $propiedad->precio; ?></td>
+                            <td>
+                                <div class="propiedad-icon">
+                                    <a href="/propiedades/editar?id=<?php echo $propiedad->id ?>">
+                                        <img src="/build/img/icon-edit.svg" alt="edit icon" title="Editar propiedad">    
+                                    </a>
+                                    <form method="POST" id="propiedades-formsubmit" action="/propiedades/eliminar">
+                                        <input type="hidden" name="id" value="<?php echo $propiedad->id ?>">
+                                        <input type="hidden" name="tipo" value="propiedad">
+                                        <input type="image" src="/build/img/icon-delete.svg" alt="delete icon" title="Eliminar propiedad" class="_delete-button">
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?> -->
+                </tbody>
+            </table>
+        
+            <!-- LISTA VENDEDORES -->
+            <h2>Vendedores</h2>
+        
+            <h4 th:if="${sellers.size() == 0}">Aún no hay vendedores añadidos</h4>
+            <table th:unless="${sellers.size() == 0}" class="propiedades">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre y apellido</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr th:each="seller: ${sellers}">
+                        <td th:text=${seller.id}></td>
+                        <td>
+                            <span th:text="${seller.name}"></span>
+                            <span th:text="${seller.surname}"></span>
+                        </td>
+                        <td th:text=${seller.phoneNumber}></td>
+                        <td>
+                            <div class="propiedad-icon">
+                                <a th:href="@{/admin/editarVendedor/{id} (id = ${seller.id})}">
+                                    <img th:src="@{/img/icon-edit.svg}" alt="edit icon" title="Editar vendedor">    
+                                </a>
+                                <form th:action="@{/admin/eliminarVendedor}" method="POST" id="propiedades-formsubmit">
+                                    <input type="hidden" name="id" th:value="${seller.id}">
+                                    <input type="hidden" name="tipo" value="vendedor">
+                                    <input type="image" th:src="@{/img/icon-delete.svg}" alt="delete icon" title="Eliminar vendedor" class="_delete-button">
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- <?php foreach($vendedores as $vendedor): 
+                    ?>
+                        <tr>
+                            <td><?php echo $vendedor->id; ?></td>
+                            <td><?php echo $vendedor->nombre . " " . $vendedor->apellido; ?></td>
+                            <td><a href="tel:<?php echo $vendedor->telefono; ?>" class="_vendedor-tel"><?php echo $vendedor->telefono; ?></a></td>
+                            <td>
+                                <div class="propiedad-icon">
+                                    <a href="/vendedores/editar?id=<?php echo $vendedor->id ?>">
+                                        <img src="/build/img/icon-edit.svg" alt="edit icon" title="Editar vendedor">    
+                                    </a>
+                                    <form method="POST" id="propiedades-formsubmit" action="/vendedores/eliminar">
+                                        <input type="hidden" name="id" value="<?php echo $vendedor->id ?>">
+                                        <input type="hidden" name="tipo" value="vendedor">
+                                        <input type="image" src="/build/img/icon-delete.svg" alt="delete icon" title="Eliminar vendedor" class="_delete-button">
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; 
+                    ?> -->
+                </tbody>
+            </table>
+        </main>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>

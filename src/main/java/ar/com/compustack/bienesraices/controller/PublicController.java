@@ -1,27 +1,33 @@
 package ar.com.compustack.bienesraices.controller;
 
-import java.security.Principal;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
 public class PublicController
 {
     @GetMapping("/")
-    public String index(Principal principal)
+    public String index()
     {
-        System.out.println("DATOS: " + principal.toString());
-
         return "public/index";
     }
 
-
-    @GetMapping("/api")
-    public @ResponseBody String api()
+    @GetMapping("/nosotros")
+    public String us()
     {
-        return "Hello world!";
+        return "public/nosotros";
+    }
+
+    @GetMapping("/blog")
+    public String blog()
+    {
+        return "public/blog";
+    }
+
+    @GetMapping("/contacto")
+    public String contact()
+    {
+        return "public/contacto";
     }
 }

@@ -23,10 +23,10 @@ public class SecurityConfig
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
         return http
-            .csrf().disable()
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth ->
             {
-                auth.antMatchers("/admin/**").hasRole("ADMIN");
+                auth.antMatchers("/admin/**").hasAuthority("ADMIN");
                 auth.anyRequest().permitAll();
             })
             .formLogin(form ->

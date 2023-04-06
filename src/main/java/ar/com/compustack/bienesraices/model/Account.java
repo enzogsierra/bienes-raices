@@ -17,8 +17,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "accounts")
-@Getter @Setter 
-@ToString
+@Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor
 public class Account 
 {
@@ -26,8 +25,8 @@ public class Account
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;   
 
-    @Column(unique = true)
-    @Size(min = 4, max = 24, message = "El nombre de usuario debe tener entre 4 y 24 caracteres")
+    @Column(length = 32, unique = true)
+    @Size(min = 4, max = 32, message = "El nombre de usuario debe tener entre 4 y 32 caracteres")
     private String username;
     
     @Size(min = 4, message = "La contraseña debe tener un mínimo de 4 caracteres")

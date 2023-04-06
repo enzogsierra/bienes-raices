@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout::head">
+    </head>
+
+    <body>
+        <header th:replace="layout::header"></header>
+
+        <main class="contenedor seccion">
+            <h1 th:if="${property.id == null}">Crear propiedad</h1>
+            <h1 th:unless="${property.id == null}">Editar propiedad</h1>
+        
+            <a th:href="@{/admin}" class="boton boton-verde">Volver</a>
+    
+            <!-- Formulario -->
+            <form th:action="@{/admin/propertyPost}" th:object="${property}" class="formulario" method="POST" enctype="multipart/form-data">
+                <div th:if="${#fields.hasAnyErrors()}" class="admin-msg admin-msg-error">
+                    <p th:each="error: ${#fields.allErrors()}" th:text="${error}"></p>
+                </div>
+
+                <fieldset>
+                    <legend>Información general</legend>
+                    
+                    <input th:field="*{id}" type="hidden">
+                    <input th:field="*{imageName}" type="hidden">
+
+                    <label for="titulo">Título de la propiedad</label>  
+                    <input th:field="*{title}" type="text" placeholder="Casa en la colina" id="titulo">
+                    
+                    <label for="precio">Precio</label> 
+                    <input th:field="*{price}" type="number" placeholder="0" id="precio">
+
+                    <label for="descripcion">Descripción</label>
+                    <textarea th:field="*{description}" id="descripcion" placeholder="Casa moderna ubicada en la colina, con una hermosa vista a la ciudad..."></textarea>
+                    
+                    <label for="imagen">Foto de la propiedad</label>  
+                    <input type="file" id="imagen" accept="image/jpeg, image/png" name="imageFile">
+
+                    <div th:if="*{imageName != null && !imageName.isEmpty()}" class="formulario-imagen">
+                        <img th:src="@{/assets/properties/{img} (img = *{imageName})}" alt="Foto actual de la propiedad">
+                        <p>(Imagen actual)</p>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información de la propiedad</legend>
+                
+                    <label for="habitaciones">Habitaciones</label> 
+                    <input th:field="*{rooms}" type="number" placeholder="0" id="habitaciones" min="1" max="9" autocomplete="off">
+                
+                    <label for="wc">Baños</label> 
+                    <input th:field="*{bathrooms}" type="number" placeholder="0" id="wc" min="1" max="9" autocomplete="off">
+                
+                    <label for="estacionamiento">Estacionamientos</label> 
+                    <input th:field="*{parkingLots}" type="number" placeholder="0" id="estacionamiento" min="1" max="9" autocomplete="off">
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Vendedor</legend>
+                
+                    <select name="seller" id="seller">
+                        <option th:value="${0}" disabled selected>-- Selecciona un vendedor --</option>
+
+                        <option th:each="seller: ${sellers}" th:value="${seller.id}" th:text="${seller.name + ' ' + seller.surname}"></option>
+                    </select>
+                </fieldset>
+    
+                <input type="submit" value="Guardar" class="boton-verde">
+            </form>
+        </main>
+
+        <footer th:replace="layout::footer"></footer>
+    </body>
+</html>
